@@ -70,12 +70,12 @@ const gameState = {
     console.log("die");
   },
   changeWeather() {
-    console.log("change weather");
+    this.scene = (this.scene + 1) % SCENES.length;
+    modScene(SCENES[this.scene]);
+    this.determineFoxState();
   },
   cleanUpPoop() {
-    if (this.current !== "POOPING") {
-      return;
-    }
+    if (this.current !== "POOPING") return;
 
     this.dieTime = -1;
     togglePoopBag(true);
@@ -104,9 +104,7 @@ const gameState = {
     }
   },
   feed() {
-    if (this.current !== "HUNGRY") {
-      return;
-    }
+    if (this.current !== "HUNGRY") return;
 
     this.current = "FEEDING";
     this.dieTime = -1;
@@ -121,11 +119,8 @@ const gameState = {
     modFox("pooping");
   },
   handleUserAction(icon) {
-    if (
-      ["SLEEP", "FEEDING", "CELEBRATING", "HATCHING"].includes(this.current)
-    ) {
+    if (["SLEEP", "FEEDING", "CELEBRATING", "HATCHING"].includes(this.current))
       return;
-    }
 
     if (["DEAD", "INIT"].includes(this.current)) {
       this.startGame();
