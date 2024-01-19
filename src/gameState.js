@@ -1,14 +1,14 @@
-const states = [
-  "INIT",
-  "HATCHING",
-  "IDLING",
-  "SLEEPING",
-  "EATING",
-  "POOPING",
-  "HUNGRY",
-  "CELEBRATING",
-  "DEAD",
-];
+// const states = [
+//   "INIT",
+//   "HATCHING",
+//   "IDLING",
+//   "SLEEPING",
+//   "EATING",
+//   "POOPING",
+//   "HUNGRY",
+//   "CELEBRATING",
+//   "DEAD",
+// ];
 
 const gameState = {
   current: "INIT",
@@ -16,6 +16,9 @@ const gameState = {
   tick() {
     this.clock++;
     console.log("clock", this.clock);
+  },
+  handleUserAction(icon) {
+    console.log(icon);
   },
 };
 
