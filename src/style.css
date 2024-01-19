@@ -72,23 +72,6 @@ body {
   top: 300px;
 }
 
-.modal {
-  background-color: white;
-  border-radius: 30px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  inset: 10px 0 auto 0;
-  padding: 2rem;
-  position: absolute;
-}
-
-.modal:empty {
-  display: none;
-}
-
-.modal-inner:empty {
-  display: none;
-}
-
 .fox {
   left: 285px;
   overflow: hidden;
