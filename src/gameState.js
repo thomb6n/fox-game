@@ -58,7 +58,17 @@ const gameState = {
     this.current = "SLEEP";
     modFox("sleep");
     modScene("night");
+    this.clearTimes();
     this.wakeTime = this.clock + NIGHT_LENGTH;
+  },
+  clearTimes() {
+    this.wakeTime = -1;
+    this.sleepTime = -1;
+    this.hungryTime = -1;
+    this.dieTime = -1;
+    this.poopTime = -1;
+    this.celebrationBegins = -1;
+    this.celebrationEnds = -1;
   },
   getHungry() {
     this.current = "HUNGRY";
@@ -67,7 +77,10 @@ const gameState = {
     modFox("hungry");
   },
   die() {
-    console.log("die");
+    this.current = "DEAD";
+    modScene("dead");
+    modFox("dead");
+    this.clearTimes();
   },
   changeWeather() {
     this.scene = (this.scene + 1) % SCENES.length;
